@@ -1,0 +1,72 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 2025/09/28 10:22:51
+// Design Name: 
+// Module Name: segments_display
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module segments_display(
+        input clk,
+        input rst,
+        input [15:0] output_num,
+        output wire [2:0] seg_an,
+        output reg [3:0] seg_data
+    );
+
+    // 1个数码管点亮2x10^6个时钟周期
+    localparam MAX_TIME = 2_000_000;
+    reg [31:0] TIME;
+    reg light;
+    always @(posedge clk) begin
+        if(rst | TIME == 32'd1) begin
+            light <= 1'd1;
+        end
+        else light <= 1'd0;
+
+        if(rst | TIME == MAX_TIME) begin
+            TIME <= 32'd1;
+        end
+        else begin
+            TIME <= TIME + 32'd1;
+        end
+    end
+
+    // 每次刷新的时候，更新 seg_id
+    reg [1:0] seg_id;    
+    always @(posedge clk) begin
+        if(rst) seg_id <= 2'd0;
+        else begin
+            if(light) begin
+                if(seg_id == 2'd3) seg_id <= 2'd0;
+                else seg_id <= seg_id + 1;
+            end            
+        end
+    end
+
+    // 根据seg_id，从4个4位数码管（16位数字）中选择1个进行输出，其他的为0；
+    assign seg_an = {1'b0, seg_id};
+    always @(*) begin
+        seg_data = 0;
+        case(seg_id)
+            2'd0: seg_data = output_num[3:0]; 
+            2'd1: seg_data = output_num[7:4];
+            2'd2: seg_data = output_num[11:8];
+            2'd3: seg_data = output_num[15:12];
+        endcase
+    end
+endmodule

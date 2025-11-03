@@ -1,0 +1,11 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../lab7.srcs/sources_1/new/Adder_LookAhead4.v" \
+"../../../../lab7.srcs/sources_1/new/multcomb.v" \
+"../../../../lab7.srcs/sources_1/new/test_multcomb.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
