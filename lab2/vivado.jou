@@ -1,0 +1,33 @@
+#-----------------------------------------------------------
+# Vivado v2023.2 (64-bit)
+# SW Build 4029153 on Fri Oct 13 20:14:34 MDT 2023
+# IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+# SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+# Start of session at: Mon Aug 10 18:36:02 2026
+# Process ID: 8200
+# Current directory: E:/course/ustc_digital_lab/digital_lab/lab2
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent14588 E:\course\ustc_digital_lab\digital_lab\lab2\lab2.xpr
+# Log file: E:/course/ustc_digital_lab/digital_lab/lab2/vivado.log
+# Journal file: E:/course/ustc_digital_lab/digital_lab/lab2\vivado.jou
+# Running On: DESKTOP-ROOSFVQ, OS: Windows, CPU Frequency: 2304 MHz, CPU Physical cores: 4, Host memory: 8458 MB
+#-----------------------------------------------------------
+start_gui
+open_project E:/course/ustc_digital_lab/digital_lab/lab2/lab2.xpr
+update_compile_order -fileset sources_1
+write_project_tcl {E:/course/ustc_digital_lab/digital_lab/lab7/lab7.srcs/sources_1/new/lab2.tcl}
+close_project
+open_project E:/course/ustc_digital_lab/digital_lab/lab3/lab3.xpr
+update_compile_order -fileset sources_1
+write_project_tcl {E:/course/ustc_digital_lab/digital_lab/lab3/lab3.tcl}
+close_project
+open_project E:/course/ustc_digital_lab/digital_lab/lab4/lab4.xpr
+update_compile_order -fileset sources_1
+write_project_tcl {E:/course/ustc_digital_lab/digital_lab/lab4/lab4.tcl}
+close_project
+open_project E:/course/ustc_digital_lab/digital_lab/lab5/lab5.xpr
+update_compile_order -fileset sources_1
+write_project_tcl {E:/course/ustc_digital_lab/digital_lab/lab5/lab5.tcl}
+close_project
+open_project E:/course/ustc_digital_lab/digital_lab/lab6/lab6.xpr
+update_compile_order -fileset sources_1
+write_project_tcl {E:/course/ustc_digital_lab/digital_lab/lab6/lab6.tcl}
